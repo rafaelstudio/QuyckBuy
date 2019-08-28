@@ -1,11 +1,12 @@
 ﻿using QuickyBuy.Dominio.ObjetoDeValor;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace QuickyBuy.Dominio.Entidades
 {
-   public class Pedido
+   public class Pedido : Entidade
     {
         public int Id { get; set; }
         public DateTime DataPedido { get; set; }
@@ -28,5 +29,15 @@ namespace QuickyBuy.Dominio.Entidades
         //ou muitos itens de pedidos
         public ICollection<ItemPedido> ItensPedido { get; set; }
 
+        public override void Validade()
+        {
+            LimparMensagensValidacao();
+
+            if (ItensPedido.Any())
+                AdicionarCritica("Erro: Pedido não pode ficar sem itens de pedido");
+
+            if (string.IsNullOrEmpty(Cep))
+                AdicionarCritica("Erro: - O campo cep não pode estar vazio");
+        }
     }
 }
