@@ -12,7 +12,7 @@ namespace QuickyBuy.Dominio.Entidades
         public string SobreNome { get; set; }
 
         //Usuario pode ter nunhum ou muitos pedidos
-        public ICollection<Pedido> Pedidos { get; set; }
+        public virtual ICollection<Pedido> Pedidos { get; set; }
 
         public override void Validade()
         {
