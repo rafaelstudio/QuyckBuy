@@ -1,6 +1,6 @@
 ﻿namespace QuickyBuy.Repositorio.Repositorios
 {
-    internal interface IPedidoRepositorio
+    public interface IPedidoRepositorio
     {
     }
 }

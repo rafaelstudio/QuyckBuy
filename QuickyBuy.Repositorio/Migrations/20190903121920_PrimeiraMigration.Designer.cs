@@ -9,8 +9,8 @@ using QuickyBuy.Repositorio.Contexto;
 namespace QuickyBuy.Repositorio.Migrations
 {
     [DbContext(typeof(QuickyBuyContexto))]
-    [Migration("20190829164550_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20190903121920_PrimeiraMigration")]
+    partial class PrimeiraMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

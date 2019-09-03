@@ -7,7 +7,7 @@ using System.Text;
 
 namespace QuickyBuy.Repositorio.Config
 {
-    class ItemPedidoConfiguration : IEntityTypeConfiguration<ItemPedido>
+    public class ItemPedidoConfiguration : IEntityTypeConfiguration<ItemPedido>
     {
         public void Configure(EntityTypeBuilder<ItemPedido> builder)
         {

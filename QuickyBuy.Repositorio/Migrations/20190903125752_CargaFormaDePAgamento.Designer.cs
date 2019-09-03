@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using QuickyBuy.Repositorio.Contexto;
 
 namespace QuickyBuy.Repositorio.Migrations
 {
     [DbContext(typeof(QuickyBuyContexto))]
-    partial class QuickyBuyContextoModelSnapshot : ModelSnapshot
+    [Migration("20190903125752_CargaFormaDePAgamento")]
+    partial class CargaFormaDePAgamento
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

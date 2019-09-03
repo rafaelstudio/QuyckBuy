@@ -1,7 +1,8 @@
 {
   "ConnectionStrings": {
-    "SqlSercerConnection": "",
+    "SqlServerConnection": "",
     "QuickyBuyDB": "server=localhost;uid=root;pwd=Senh@178921R;database=QuickyBuyDB"
+
   }
 
 }

@@ -1,18 +1,14 @@
-﻿using JetBrains.Annotations;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 using QuickyBuy.Dominio.Entidades;
 using QuickyBuy.Dominio.ObjetoDeValor;
 using QuickyBuy.Repositorio.Config;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace QuickyBuy.Repositorio.Contexto
 {
     public class QuickyBuyContexto: DbContext
     {
-        
-
+               
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<Pedido> Pedidos { get; set; }
@@ -32,6 +28,12 @@ namespace QuickyBuy.Repositorio.Contexto
             modelBuilder.ApplyConfiguration(new PedidoConfiguration());
             modelBuilder.ApplyConfiguration(new ItemPedidoConfiguration());
             modelBuilder.ApplyConfiguration(new FormaPagamentoConfiguration());
+
+            modelBuilder.Entity<FormaPagamento>().HasData(
+                    new FormaPagamento() { Id = 1, Nome = "Boleto", Descricao="Forma de Pagamento Boleto" },
+                    new FormaPagamento() { Id=2 ,Nome = "Cartao de Credito",Descricao="Forma de pagamento Cartao de Credito" },
+                    new FormaPagamento() { Id = 3, Nome = "Deposito", Descricao = "Forma de pagamento Deposito" }
+                    );
 
             base.OnModelCreating(modelBuilder);
         }

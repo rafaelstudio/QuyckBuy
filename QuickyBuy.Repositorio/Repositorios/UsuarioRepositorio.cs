@@ -17,9 +17,3 @@ namespace QuickyBuy.Repositorio.Repositorios
     }
 }
 
-namespace QuickyBuy.Repositorio
-{
-    public class QuickyBuyContexto
-    {
-    }
-}
