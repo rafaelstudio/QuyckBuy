@@ -1,0 +1,47 @@
+<div class="text-center">
+
+  <img src="../../../assets/login.png" class="img-fluid mb-4" alt="Responsive image">
+
+  <form class="form-signin">
+    <h1 class="h4 mb-2 login">LOGIN</h1>
+    <label for="inputEmail" class="sr-only">Email</label>
+    <input type="email" id="inputEmail"
+           name="email" placeholder="exemplo@exemplo.com"
+           class="form-control mb-2" [(ngModel)]="usuario.email"
+           #email="ngModel"
+           email
+           required />
+    <!-- Esta div esta fazendo a validacao no campo email caso ele nao  esteja preenchido -->
+    <div class="alert alert-danger sm" *ngIf="email.invalid && (email.dirty || email.touched)">
+      <div *ngIf="email.errors.required">
+        Campo Obrigatorio!!!
+      </div>
+      <div *ngIf="email.errors.email">
+        Formato invalido!
+      </div>
+
+    </div>
+
+    <label for="inputSenha" class="sr-only"></label>
+    <input type="password" id="inputSenha"
+           name="senha" placeholder="Senha"
+           class="form-control mb-2" [(ngModel)]="usuario.senha"
+           #senha="ngModel"
+           required />
+    <!-- Esta div esta fazendo a validacao no campo Senha caso ele nao  esteja preenchido -->
+    <div class="alert alert-danger sm" *ngIf="senha.invalid && (senha.dirty || senha.touched)">
+      <div *ngIf="senha.errors.required">
+        Campo senha não pode ser vazio
+      </div>
+      
+
+    </div>
+
+    <button class="btn-primary btn-block mb-2" type="submit" (click)="entrar()">Entrar</button>
+    <div class="alert alert-primary" role="alert" *ngIf="usuarioAltenticado">
+      Usuario Altenticado!
+    </div>
+  </form>
+  
+  
+</div>
