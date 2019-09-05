@@ -1,7 +1,8 @@
 <header>
   <nav class='navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3'>
     <div class="container">
-      <a class="navbar-brand" [routerLink]='["/"]'>Speed Buy</a>
+      <img class="mr-3" src="../../assets/logocompras.png"  width="50" height="50" />
+      <a class="navbar-brand" [routerLink]='["/"]'>Speed Buy |</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-label="Toggle navigation"
               [attr.aria-expanded]="isExpanded" (click)="toggle()">
         <span class="navbar-toggler-icon"></span>
@@ -21,11 +22,16 @@
       <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" [ngClass]='{"show": isExpanded}'>
         <ul class="navbar-nav flex-grow">
 
-          <li class="nav-item" [routerLinkActive]='["link-active"]'>
+          <li class="nav-item" [routerLinkActive]='["link-active"]' *ngIf="!usuarioLogado()">
             <a class="nav-link text-light" [routerLink]='["/entrar"]'>Entrar</a>
           </li>
-          <li class="nav-item" [routerLinkActive]='["link-active"]'>
-          <a class="nav-link text-light" [routerLink]='["/cadastrar"]'>Cadastrar</a>
+
+          <li class="nav-item" [routerLinkActive]='["link-active"]' *ngIf="usuarioLogado()" >
+            <a class="nav-link text-light" [routerLink]='[""]' (click)="sair()">Sair</a>
+          </li>
+
+          <li class="nav-item" [routerLinkActive]='["link-active"]' *ngIf="!usuarioLogado()">
+            <a class="nav-link text-light" [routerLink]='["/cadastrar"]'>Cadastrar</a>
           </li>
         </ul>
       </div>
