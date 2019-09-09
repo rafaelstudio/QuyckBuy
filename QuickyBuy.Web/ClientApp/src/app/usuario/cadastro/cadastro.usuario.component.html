@@ -1,10 +1,117 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
+<div class="text-center">
 
-</body>
-</html>
+  
+
+  <form class="form-signin">
+    <h1 class="h4 mb-2 login">Criar Nova Conta</h1>
+
+    <label for="inputNome" class="sr-only">Nome:</label>
+    <input type="text" id="inputNome"
+           name="nome" placeholder="Primeiro Nome"
+           class="form-control mb-2"
+           [(ngModel)]="usuario.nome"
+           #nome="ngModel"
+           [ngClass]="{
+            'is-invalid':nome.invalid && (nome.dirty || nome.touched),
+            'is-valid':nome.valid && (nome.dirty || nome.touched)
+           }"
+           required />
+    <!-- Esta div esta fazendo a validacao no campo email caso ele nao  esteja preenchido -->
+    <div class="invalid-feedback mb-2" *ngIf="nome.invalid && (nome.dirty || nome.touched)">
+      <div *ngIf="nome.errors.required">
+        Campo é Obrigatorio!!!
+      </div>
+
+
+    </div>
+
+
+    <label for="inputSobreNome" class="sr-only">Email</label>
+    <input type="text" id="inputSobreNome"
+           name="SobreNome" placeholder=" SobreNome"
+           class="form-control mb-2"
+           [(ngModel)]="usuario.SobreNome"
+           #SobreNome="ngModel"
+           [ngClass]="{
+            'is-invalid':SobreNome.invalid && (SobreNome.dirty || SobreNome.touched),
+            'is-valid':SobreNome.valid && (SobreNome.dirty || SobreNome.touched)
+           }"
+           required />
+    <!-- Esta div esta fazendo a validacao no campo email caso ele nao  esteja preenchido -->
+    <div class="invalid-feedback mb-2" *ngIf="SobreNome.invalid && (SobreNome.dirty || SobreNome.touched)">
+      <div *ngIf="SobreNome.errors.SobreNome">
+        Campo é Obrigatorio!!!
+      </div>
+     
+
+    </div>
+
+
+
+
+
+    <label for="inputEmail" class="sr-only">Email</label>
+    <input type="email" id="inputEmail"
+           name="email" placeholder="exemplo@exemplo.com"
+           class="form-control mb-2"
+           [(ngModel)]="usuario.email"
+           #email="ngModel"
+           [ngClass]="{
+            'is-invalid':email.invalid && (email.dirty || email.touched),
+            'is-valid':email.valid && (email.dirty || email.touched)
+           }"
+           email
+           required />
+    <!-- Esta div esta fazendo a validacao no campo email caso ele nao  esteja preenchido -->
+    <div class="invalid-feedback mb-2" *ngIf="email.invalid && (email.dirty || email.touched)">
+      <div *ngIf="email.errors.required">
+        Campo é Obrigatorio!!!
+      </div>
+      <div *ngIf="email.errors.email">
+        Formato invalido!
+      </div>
+
+    </div>
+
+    <label for="inputSenha" class="sr-only"></label>
+    <input type="password" id="inputSenha"
+           name="senha" placeholder="Senha"
+           class="form-control mb-2"
+           [(ngModel)]="usuario.senha"
+           #senha="ngModel"
+           [ngClass]="{
+            'is-invalid':senha.invalid && (senha.dirty || senha.touched),
+            'is-valid':senha.valid && (senha.dirty || senha.touched)
+           }"
+           required />
+    <!-- Esta div esta fazendo a validacao no campo Senha caso ele nao  esteja preenchido -->
+    <div class="invalid-feedback mb-2" *ngIf="senha.invalid && (senha.dirty || senha.touched)">
+      <div *ngIf="senha.errors.required">
+        Campo senha não pode ser vazio
+      </div>
+
+
+    </div>
+
+    <button class="btn-primary btn-block mb-2" type="submit" (click)="cadastrar()" [disabled]="ativar_spinner">
+
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="ativar_spinner"></span>
+      Cadastrar
+
+    </button>
+
+    <a [routerLink]='["/entrar"]'> Voltar</a>
+    
+
+
+    <div class="alert alert-danger " *ngIf="mensagem">
+      {{mensagem}}
+    </div>
+
+    <div class="alert alert-primary" role="alert" *ngIf="usuarioAltenticado">
+      Usuario Altenticado!
+    </div>
+  </form>
+
+
+</div>

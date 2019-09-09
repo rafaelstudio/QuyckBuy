@@ -13,6 +13,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Angular.UI.Bootstrap" Version="2.5.0" />
+    <PackageReference Include="AngularJS.Animate" Version="1.7.8" />
+    <PackageReference Include="AngularJS.Core" Version="1.7.8" />
+    <PackageReference Include="AngularJS.Route" Version="1.7.8" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
   </ItemGroup>
@@ -26,6 +30,7 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\autorizacao\guarda.rotas.ts" />
+    <None Remove="ClientApp\src\app\modelo\produto.ts" />
     <None Remove="ClientApp\src\app\modelo\usuario.ts" />
     <None Remove="ClientApp\src\app\produto\produto.components.ts" />
     <None Remove="ClientApp\src\app\servicos\produto\produto.servico.ts" />
@@ -40,6 +45,7 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\autorizacao\guarda.rotas.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\modelo\produto.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\modelo\usuario.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\produto\produto.components.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\servicos\produto\produto.servico.ts" />
