@@ -108,6 +108,13 @@
       {{mensagem}}
     </div>
 
+    <div class="alert alert-success" *ngIf="usuarioCadastrado" >
+        Usuario cadastrado com sucesso! <a class="alert-link" [routerLink]='["/entrar"]'>Clique Aqui</a>
+      para entrar no sistema com sua conta!
+    </div>
+
+
+
     <div class="alert alert-primary" role="alert" *ngIf="usuarioAltenticado">
       Usuario Altenticado!
     </div>

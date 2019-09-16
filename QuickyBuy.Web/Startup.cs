@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
@@ -31,6 +32,7 @@ namespace QuickyBuy.Web
         {           
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             var connectionString = Configuration.GetConnectionString("QuickyBuyDB");
             services.AddDbContext<QuickyBuyContexto>(option => 
